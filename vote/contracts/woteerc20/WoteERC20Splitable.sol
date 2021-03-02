@@ -120,6 +120,7 @@ contract WoteERC20Spilable {
         require(!_hasVoted(_owner), "Cannot give allowance after casted your vote");
         require(_isCandidate(_spender) || _isVoter(_spender), "Allowances are only for vote actors (voters and candidates).");
         require(_owner != _spender, "Cannot give allowance to yourself");
+        allowances[_owner][_spender] = _value;
         emit Approval(_owner, _spender, _value);
         return true;
     }

@@ -107,6 +107,7 @@ contract WoteERC20 {
         require(!_hasVoted(_owner), "Cannot give allowance after casted your vote");
         require(_isCandidate(_spender), "Allowances are only for candidates to claim it in the future");
         require(_owner != _spender, "Cannot give allowance to yourself");
+        allowances[_owner][_spender] = _value;
         emit Approval(_owner, _spender, _value);
         return true;
     }
